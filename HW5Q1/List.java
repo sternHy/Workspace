@@ -100,18 +100,13 @@ public class List {
     }
 
     public ListNode removeAt(int k) throws ListIndexOutOfBound {
-        if (k < 0) {
-            throw new ListIndexOutOfBound("The parameter given is negative");
-        }
         if (k == 0) {
             removeFromFront();
+            return firstNode;
         }
         ListNode res = firstNode;
-        for (int i = k; i < k - 1; i--) {
+        for (int i = 0; i < k; i++) {
             res = res.getNext();
-            if (res == null) {
-                throw new ListIndexOutOfBound("The parameter given is bigger than the list's size");
-            }
         }
         if (res.getNext() == lastNode) {
             removeFromBack();
@@ -133,6 +128,23 @@ public class List {
             return;
         } else {
             firstNode.showRev();
+        }
+    }
+
+    public void addAt(int k, Object o) throws ListIndexOutOfBound {
+        if (k < 0) {
+            throw new ListIndexOutOfBound();
+        }
+        if (k == 0) {
+            insertAtFront(o);
+            return;
+        }
+        ListNode res = firstNode;
+        for (int i = 0; i < k - 1; i--) {
+            res = res.getNext();
+            if (res == null) {
+                throw new ListIndexOutOfBound("The parameter given is bigger than the list's size");
+            }
         }
     }
 }
