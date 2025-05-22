@@ -1,4 +1,3 @@
-
 public class List {
 
     private ListNode firstNode;
@@ -99,20 +98,20 @@ public class List {
         return res + ")";
     }
 
-    public ListNode removeAt(int k) throws ListIndexOutOfBound {
+    public Object removeAt(int k) throws ListIndexOutOfBound {
         if (k == 0) {
             removeFromFront();
             return firstNode;
         }
         ListNode res = firstNode;
-        for (int i = 0; i < k; i++) {
+        for (int i = 0; i < k - 1; i++)
             res = res.getNext();
-        }
         if (res.getNext() == lastNode) {
             removeFromBack();
+            return lastNode;
         }
         res.setNext(res.getNext().getNext());
-        return res.getNext();
+        return res.getNext().getObject();
     }
 
     public void show() {
@@ -132,19 +131,33 @@ public class List {
     }
 
     public void addAt(int k, Object o) throws ListIndexOutOfBound {
-        if (k < 0) {
-            throw new ListIndexOutOfBound();
-        }
         if (k == 0) {
             insertAtFront(o);
             return;
         }
         ListNode res = firstNode;
-        for (int i = 0; i < k - 1; i--) {
+        for (int i = 0; i < k; i++)
             res = res.getNext();
-            if (res == null) {
-                throw new ListIndexOutOfBound("The parameter given is bigger than the list's size");
-            }
+        if (res.getNext() == lastNode) {
+            insertAtBack(o);
+            return;
         }
+        res.setNext(new ListNode(o, res.getNext()));
+    }
+
+    public Object[] toArray() {
+        int len = 0;
+        ListNode current = firstNode;
+        while (current != null) {
+            len++;
+            current = current.getNext();
+        }
+        Object[] res = new Object[len];
+        current = firstNode;
+        for (int i = 0; i < len; i++) {
+            res[i] = current.getObject();
+            current = current.getNext();
+        }
+        return res;
     }
 }
