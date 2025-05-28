@@ -1,9 +1,9 @@
 public interface Arithmetic {
-    public abstract Arithmetic add(Arithmetic a);
+    public abstract Arithmetic add(Object a);
 
-    public abstract Arithmetic sub(Arithmetic a);
+    public abstract Arithmetic sub(Object a);
 
-    public abstract Arithmetic mul(Arithmetic a);
+    public abstract Arithmetic mul(Object a);
 
-    public abstract Arithmetic div(Arithmetic a);
+    public abstract Arithmetic div(Object a);
 }

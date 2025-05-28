@@ -26,15 +26,14 @@ public class ListNode {
     }
 
     public void show() {
-        if (nextNode != null) {
-            System.out.println(data);
+        System.out.println(data);
+        if (nextNode != null)
             nextNode.show();
-        }
     }
 
     public void showRev() {
         if (nextNode != null) {
-            nextNode.show();
+            nextNode.showRev();
         }
         System.out.println(data);
     }

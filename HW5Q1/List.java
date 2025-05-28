@@ -85,6 +85,7 @@ public class List {
         System.out.println();
     }
 
+    @Override
     public String toString() {
         String res = "(";
         ListNode current = firstNode;
@@ -99,19 +100,20 @@ public class List {
     }
 
     public Object removeAt(int k) throws ListIndexOutOfBound {
-        if (k == 0) {
-            removeFromFront();
-            return firstNode;
-        }
+        if (k < 0)
+            throw new ListIndexOutOfBound();
+        if (k == 0)
+            return removeFromFront();
         ListNode res = firstNode;
-        for (int i = 0; i < k - 1; i++)
+        for (int i = 0; i < k - 1; i++) {
             res = res.getNext();
-        if (res.getNext() == lastNode) {
-            removeFromBack();
-            return lastNode;
+            if (res == null)
+                throw new ListIndexOutOfBound();
         }
+        if (res.getNext() == lastNode)
+            return removeFromBack();
         res.setNext(res.getNext().getNext());
-        return res.getNext().getObject();
+        return res.getObject();
     }
 
     public void show() {
@@ -131,12 +133,14 @@ public class List {
     }
 
     public void addAt(int k, Object o) throws ListIndexOutOfBound {
+        if (k < 0)
+            throw new ListIndexOutOfBound();
         if (k == 0) {
             insertAtFront(o);
             return;
         }
         ListNode res = firstNode;
-        for (int i = 0; i < k; i++)
+        for (int i = 0; i < k - 1; i++)
             res = res.getNext();
         if (res.getNext() == lastNode) {
             insertAtBack(o);
