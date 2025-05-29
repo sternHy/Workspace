@@ -1,4 +1,6 @@
+
 public class Head extends Node {
+
     private Node next;
 
     public Head() {

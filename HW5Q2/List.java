@@ -1,4 +1,6 @@
+
 public class List {
+
     private Head head;
 
     public List() {

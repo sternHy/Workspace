@@ -1,4 +1,6 @@
+
 public class Tail extends Node {
+
     public Tail() {
     }
 

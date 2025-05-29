@@ -27,8 +27,9 @@ public class ListNode {
 
     public void show() {
         System.out.println(data);
-        if (nextNode != null)
+        if (nextNode != null) {
             nextNode.show();
+        }
     }
 
     public void showRev() {

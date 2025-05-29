@@ -1,3 +1,4 @@
+
 public class List {
 
     private ListNode firstNode;
@@ -100,18 +101,22 @@ public class List {
     }
 
     public Object removeAt(int k) throws ListIndexOutOfBound {
-        if (k < 0)
+        if (k < 0) {
             throw new ListIndexOutOfBound();
-        if (k == 0)
+        }
+        if (k == 0) {
             return removeFromFront();
+        }
         ListNode res = firstNode;
         for (int i = 0; i < k - 1; i++) {
             res = res.getNext();
-            if (res == null)
+            if (res == null) {
                 throw new ListIndexOutOfBound();
+            }
         }
-        if (res.getNext() == lastNode)
+        if (res.getNext() == lastNode) {
             return removeFromBack();
+        }
         res.setNext(res.getNext().getNext());
         return res.getObject();
     }
@@ -133,15 +138,17 @@ public class List {
     }
 
     public void addAt(int k, Object o) throws ListIndexOutOfBound {
-        if (k < 0)
+        if (k < 0) {
             throw new ListIndexOutOfBound();
+        }
         if (k == 0) {
             insertAtFront(o);
             return;
         }
         ListNode res = firstNode;
-        for (int i = 0; i < k - 1; i++)
+        for (int i = 0; i < k - 1; i++) {
             res = res.getNext();
+        }
         if (res.getNext() == lastNode) {
             insertAtBack(o);
             return;
