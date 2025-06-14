@@ -1,11 +1,13 @@
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class Program {
 
     public static void main(String[] args) {
-
+        Collection<Object> c = Arrays.asList(1, 2, 2, 3, 3, 3, 1, 4);
+        Map<Object, Integer> mc = calcFreq(c);
+        for (Map.Entry<Object, Integer> entry : mc.entrySet()) {
+            System.out.println(entry.getKey() + " : " + entry.getValue());
+        }
     }
 
     public static Map calcFreq(Collection<Object> c) {
