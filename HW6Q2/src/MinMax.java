@@ -1,5 +1,5 @@
 
-public interface MinMax<T> {
+public interface MinMax<T extends Comparable<T>> {
 
     T Min();
 
