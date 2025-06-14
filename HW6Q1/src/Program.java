@@ -1,3 +1,4 @@
+
 import java.util.*;
 
 public class Program {
@@ -16,13 +17,15 @@ public class Program {
         }
         System.out.println("Parties that didn't pass the block:");
         for (String i : scores.keySet()) {
-            if (scores.get(i) < block)
+            if (scores.get(i) < block) {
                 System.out.println(i);
+            }
         }
         System.out.println("Parties that did pass the block:");
         for (String i : scores.keySet()) {
-            if (scores.get(i) >= block)
+            if (scores.get(i) >= block) {
                 System.out.println(i + ":" + scores.get(i));
+            }
         }
         String biggestParty = "";
         int maxVotes = 0;
