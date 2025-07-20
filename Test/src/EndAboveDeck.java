@@ -1,9 +1,8 @@
-
 import java.util.ArrayList;
 
-public class RandomDeck extends Deck {
+public class EndAboveDeck extends Deck {
 
-    public RandomDeck() {
+    public EndAboveDeck() {
         super(new ArrayList<Card>(52));
     }
 
@@ -11,14 +10,12 @@ public class RandomDeck extends Deck {
     public void add(Card c) {
         if (size >= 52 || c == null)
             return;
-        super.addAt(c, size);
+        super.addAt(c, 0);
         size++;
     }
 
     @Override
     public Card pull() {
-        if (size == 0)
-            return null;
-        return super.pullFrom((int) (Math.random() * (size--)));
+        return pullFrom(--size);
     }
 }

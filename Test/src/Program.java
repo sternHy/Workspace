@@ -1,5 +1,3 @@
-import java.util.*;
-
 public class Program {
     // public static <T extends Comparable<T>> int resefs(List<T> l) {
     // T[] array = (T[]) l.toArray();

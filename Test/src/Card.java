@@ -1,4 +1,4 @@
-public class Card {
+public class Card implements Comparable<Card> {
     private int value;
     private char suit;
 
@@ -9,5 +9,12 @@ public class Card {
 
     public int getValue() {
         return value;
+    }
+
+    @Override
+    public int compareTo(Card c) {
+        if (c == null)
+            return -1;
+        return value - c.value;
     }
 }
